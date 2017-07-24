@@ -307,4 +307,9 @@ public class TreeOperations {
 		return sum;
 
 	}
+	
+	int maxdepth(Node node) {
+		if(node==null) return 0;
+		return 1+Math.max(maxdepth(node.left),maxdepth(node.right));
+	}
 }

@@ -11,4 +11,9 @@ public class OperationsTest {
 		operations.levelOrderTraversal(root);
 	}
 
+	@Test
+	public void testMaxDepth() {
+		Node root = Node.createTestTree();
+		System.out.println(operations.maxdepth(root));
+	}
 }
