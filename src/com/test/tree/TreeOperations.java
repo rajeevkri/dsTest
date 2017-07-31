@@ -273,6 +273,23 @@ public class TreeOperations {
 		}
 		return found;
 	}
+	
+	//iterative search
+	public static int searchIt(Node root, int val) {
+		Node pre = root, cur = root;
+		while (cur != null) {
+			pre = cur;
+			if (cur.data == val)
+				return 1;
+			else if (cur.data < val)
+				cur = cur.right;
+			else
+				cur = cur.left;
+		}
+		if ((pre.left != null && pre.left.data == val) || (pre.right != null && pre.right.data == val))
+			return 1;
+		return 0;
+	}
 
 	/**
 	 * increment any duplicate number to make all array element unique such that sum in minimum
