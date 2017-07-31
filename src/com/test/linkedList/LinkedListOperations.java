@@ -14,16 +14,16 @@ public class LinkedListOperations {
 	public static LinkedListNode removeNodes(LinkedListNode list, int x) {
 		if (list == null)
 			return list;
-		LinkedListNode newHead = new LinkedListNode(-1);
+		LinkedListNode newHead = new LinkedListNode(0);
 		newHead.next = list;
-		LinkedListNode temp = newHead;
-		temp = temp.next;
-		while (temp.next != null) {
-			if (temp.next.val > x) {
-				temp.next = temp.next.next;
-			}
-		}
-
+        LinkedListNode temp = newHead;
+        while (temp.next != null) {
+            if (temp.next.val > x) {
+            	temp.next = temp.next.next;
+            }
+            else temp = temp.next;
+        }
+        
 		return newHead.next;
 	}
 
