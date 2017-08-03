@@ -85,6 +85,37 @@ public class Operations {
 		}
 		return maxValues[r - 1][c - 1];
 	}
-	
-	
+
+	/**
+	 * Solves 0/1 knapsack in bottom up dynamic programming using bottom up
+	 * approach
+	 * 
+	 * @param wt
+	 *            array of given weights
+	 * @param val
+	 *            array of value corresponding to weight
+	 * @param w
+	 *            total weight
+	 * @return Max value you can get via adding weight values such that sum of
+	 *         weight is equal to given weight
+	 * 
+	 */
+	public int knapsack(int val[], int wt[], int w) {
+		int T[][] = new int[val.length + 1][w + 1];
+		for (int i = 0; i <= val.length; i++) {
+			for (int j = 0; j <= w; j++) {
+				if (i == 0 || j == 0) {
+					T[i][j] = 0;
+					continue;
+				}
+				if (j - wt[i - 1] >= 0) {
+					T[i][j] = Math.max(T[i - 1][j], val[i - 1] + T[i - 1][j - wt[i - 1]]);
+				} else {
+					 T[i][j] = T[i-1][j];
+				}
+			}
+		}
+		return T[val.length][w];
+	}
+
 }
