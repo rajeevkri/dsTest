@@ -1,6 +1,6 @@
 package com.test.array;
 
-class FindTriplet
+public class FindTriplet
 {
      
     // returns true if there is triplet with sum equal
