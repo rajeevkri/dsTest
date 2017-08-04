@@ -111,11 +111,41 @@ public class Operations {
 				if (j - wt[i - 1] >= 0) {
 					T[i][j] = Math.max(T[i - 1][j], val[i - 1] + T[i - 1][j - wt[i - 1]]);
 				} else {
-					 T[i][j] = T[i-1][j];
+					T[i][j] = T[i - 1][j];
 				}
 			}
 		}
 		return T[val.length][w];
+	}
+
+	public int longestIncreasingSubSequence(int[] arr) {
+		int n = arr.length;
+		int T[] = new int[n];
+		//Array using which we can backtrack to find actual array which has given us max length
+		int finalSequ[] = new int[n];
+		for (int i = 0; i < n; i++) {
+			T[i] = 1;
+		}
+		for (int i = 1; i < n; i++) {
+			for (int j = 0; j < i; j++) {
+				if (arr[i] > arr[j]) {
+					int k = T[j] + 1;
+					if (k > T[i]) {
+						T[i] = k;
+						//set value from which index this value is being updated
+						finalSequ[i] = j;
+					}
+				}
+			}
+		}
+		int max = T[0];
+		for (int i = 1; i < n; i++) {
+			if (T[i] > max) {
+				max = T[i];
+			}
+		}
+
+		return max;
 	}
 
 }
