@@ -118,7 +118,7 @@ public class Operations {
 		return T[val.length][w];
 	}
 
-	public int longestIncreasingSubSequence(int[] arr) {
+	public int longestIncreasingSubSequence(long[] arr) {
 		int n = arr.length;
 		int T[] = new int[n];
 		//Array using which we can backtrack to find actual array which has given us max length
