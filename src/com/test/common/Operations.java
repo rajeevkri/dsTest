@@ -601,4 +601,13 @@ public class Operations {
 		}
 		return false;
 	}
+	
+	static long factorial(int n) {
+        if(n==1 || n==0) {
+            return n;
+        }
+        long fact = n*factorial(n-1);
+        return fact;
+    }
+
 }
