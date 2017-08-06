@@ -120,6 +120,7 @@ public class Operations {
 
 	public int longestIncreasingSubSequence(long[] arr) {
 		int n = arr.length;
+		//Temp array which will store size of increasing subsequence till the given number
 		int T[] = new int[n];
 		//Array using which we can backtrack to find actual array which has given us max length
 		int finalSequ[] = new int[n];
