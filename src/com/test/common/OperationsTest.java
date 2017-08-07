@@ -1,5 +1,7 @@
 package com.test.common;
 
+import org.junit.Test;
+
 public class OperationsTest {
 	Operations ops = new Operations();
 
@@ -9,5 +11,10 @@ public class OperationsTest {
 		int n = arr.length;
 		int X = 91;
 		ops.findFourElements(arr, n, X);
+	}
+	
+	@Test
+	public void testPermute(){
+		ops.permute("sfjsa", 0, 4);
 	}
 }
