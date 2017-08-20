@@ -1,4 +1,4 @@
-package com.test.hackerrank.queue;
+package com.test.hackerrank.stack;
 
 import java.util.Scanner;
 import java.util.Stack;
