@@ -4,12 +4,28 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class UberTest {
-
+	
 	// Form a team with maximum score
 	static long teamFormation(int[] score, int team, int m) {
 		int n = score.length;
-
-		if ((2 * m) < n) {
+		if (m < team) {
+			Arrays.sort(score);
+			long total = 0;
+			int last = score[n-1];
+			total += score[n-1];
+			int t = 0;
+			for (int i = n - 2; i >= 0; i--) {
+				if(last != score[i]) {
+					total += score[i];
+					t++;
+					if (t == team) {
+						break;
+					}
+					last = score[i];
+				}
+			}
+			return total;
+		} else if ((2 * m) < n) {
 			Arrays.sort(score);
 			long total = 0;
 			int t = 0;
@@ -42,6 +58,43 @@ public class UberTest {
 		}
 
 	}
+
+//	static long teamFormation(int[] score, int team, int m) {
+//		int n = score.length;
+//
+//		if ((2 * m) < n) {
+//			Arrays.sort(score);
+//			long total = 0;
+//			int t = 0;
+//			for (int i = n - 1; i >= 0; i--) {
+//				total += score[i];
+//				t++;
+//				if (t == team) {
+//					break;
+//				}
+//			}
+//			return total;
+//		} else {
+//			Arrays.sort(score, 0, m - 1);
+//			Arrays.sort(score, n - m - 1, n - 1);
+//			int i = m - 1, j = n - 1;
+//			int t = 0;
+//			long total = 0;
+//			while (i >= 0 && j >= n - m - 1) {
+//				if (score[i] >= score[j]) {
+//					total += score[i--];
+//				} else {
+//					total += score[j--];
+//				}
+//				t++;
+//				if (t == team) {
+//					break;
+//				}
+//			}
+//			return total;
+//		}
+//
+//	}
 
 	// maximize total bundleQuantity, given bundleCost for each bundle
 	static int budgetShopping(int n, int[] bundleQuantities, int[] bundleCosts) {
