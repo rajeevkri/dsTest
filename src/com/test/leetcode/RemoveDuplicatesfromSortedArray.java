@@ -26,8 +26,19 @@ public class RemoveDuplicatesfromSortedArray {
 		return count;
 	}
 
+	public static int removeDuplicates(int A[], int n) {
+		if (n < 2)
+			return n;
+		int id = 1;
+		for (int i = 1; i < n; ++i)
+			if (A[i] != A[i - 1])
+				A[id++] = A[i];
+		return id;
+	}
+
 	public static void main(String[] args) {
 		int[] arr = { 1, 1, 2 };
-		System.out.println(removeDuplicates(arr));
+		System.out.println(removeDuplicates(arr, 3));
+		System.out.println("test");
 	}
 }
