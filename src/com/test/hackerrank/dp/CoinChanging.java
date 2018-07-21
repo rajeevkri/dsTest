@@ -27,4 +27,28 @@ public class CoinChanging {
         
         System.out.println(dp[m][n]);
     }
+	
+	static long solve(long K, long N){
+        // write code here
+    
+		int ways[] = new int[(int) K];
+        for(int i=1; i <= K; i++){
+            ways[i] = i;
+        }
+        long [][] dp = new long[(int) (K+1)][(int) (N+1)];
+        for(int i=0; i<= K;i++) {
+            dp[i][0] = 1;
+        }
+        for(int i =1; i<=K;i++) {
+            for(int j=1;j<=N;j++) {
+                if(ways[i-1] > j) {
+                    dp[i][j] = dp[i-1][j];
+                } else {
+                    dp[i][j] = dp[i-1][j] + dp[i][j-ways[i-1]];
+                }
+            }
+        }
+        
+        return dp[(int) K][(int) N];
+    }
 }
